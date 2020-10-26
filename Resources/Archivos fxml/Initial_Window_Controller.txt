@@ -1,0 +1,51 @@
+package controlador;
+
+import javafx.fxml.FXML;
+import javafx.scene.control.ProgressBar;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
+
+public class Initial_Window_Controller {
+
+    @FXML
+    private TextField tfDatosGenerar;
+
+    @FXML
+    private ProgressBar progressBarGenerando;
+
+    @FXML
+    private TableView<?> tableViewPersonas;
+
+    @FXML
+    private TableColumn<?, ?> tColumnNombrePersona;
+
+    @FXML
+    private TableColumn<?, ?> tColumnApellidoPersona;
+
+    @FXML
+    void btnActualizarDatosPersona(ActionEvent event) {
+
+    }
+
+    @FXML
+    void btnAgregarPersona(ActionEvent event) {
+
+    }
+
+    @FXML
+    void btnBuscarPersona(ActionEvent event) {
+
+    }
+
+    @FXML
+    void btnGenerarDatos(ActionEvent event) {
+
+    }
+
+    @FXML
+    void btnGuardarDatosGenerados(ActionEvent event) {
+
+    }
+
+}

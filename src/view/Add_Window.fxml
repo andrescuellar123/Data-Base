@@ -59,13 +59,13 @@
       <Separator layoutX="14.0" layoutY="65.0" prefHeight="4.0" prefWidth="657.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="65.0" />
       <ImageView fitHeight="62.0" fitWidth="98.0" layoutX="14.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="4.0">
          <image>
-            <Image url="@anadir%20(1).png" />
+            <Image url="@../../Resources/anadir%20(1).png" />
          </image>
       </ImageView>
       <Separator layoutX="14.0" layoutY="337.0" prefHeight="16.0" prefWidth="669.0" AnchorPane.bottomAnchor="68.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="10.0" />
       <ImageView fx:id="imageViewPhotoPerfil" fitHeight="150.0" fitWidth="200.0" layoutX="450.0" layoutY="83.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="81.0" AnchorPane.topAnchor="83.0">
          <image>
-            <Image url="@imagen_default.png" />
+            <Image url="@../../Resources/imagen_default.png" />
          </image>
       </ImageView>
       <Text layoutX="460.0" layoutY="254.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Subir foto de la persona." AnchorPane.rightAnchor="91.19140625" AnchorPane.topAnchor="241.0" />

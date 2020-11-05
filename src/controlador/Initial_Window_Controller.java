@@ -28,6 +28,9 @@ public class Initial_Window_Controller {
     private Pane cuadroGenerar;
 
     @FXML
+    private Pane progressBarPane;
+
+    @FXML
     private ProgressBar progressBarGenerando;
 
     @FXML

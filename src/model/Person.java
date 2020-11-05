@@ -2,6 +2,8 @@ package model;
 
 import java.util.Date;
 
+import javax.swing.JOptionPane;
+
 public class Person {
 
 	private String name, lastName, nacionality, sex, photo;
@@ -21,6 +23,10 @@ public class Person {
 		this.height = height;
 	}
 	
+	
+	public void subirFotografia() {
+		JOptionPane.showMessageDialog(null, "holaa");
+	}
 	
 	public String getName() {
 		return name;

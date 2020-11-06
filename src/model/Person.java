@@ -1,32 +1,38 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
-import javax.swing.JOptionPane;
+
+
+
 
 public class Person {
 
 	private String name, lastName, nacionality, sex, photo;
 	private Date dateBirth;
 	private double height;
+	public Person left;
+	public Person right;
+	private int fe;
 	
-	
-	public Person(String name, String lastName, String nacionality, String sex, String photo, Date dateBirth,
+	   
+	public Person(String name, String lastName, String nacionality, String sex, Date dateBirth,
 			double height) {
 		super();
 		this.name = name;
 		this.lastName = lastName;
 		this.nacionality = nacionality;
 		this.sex = sex;
-		this.photo = photo;
 		this.dateBirth = dateBirth;
 		this.height = height;
+		this.fe=0;
+		left=null;
+		right=null;
+		
 	}
 	
-	
-	public void subirFotografia() {
-		JOptionPane.showMessageDialog(null, "holaa");
-	}
 	
 	public String getName() {
 		return name;
@@ -70,6 +76,32 @@ public class Person {
 	public void setHeight(double height) {
 		this.height = height;
 	}
+	public Person getRight() {
+		return right;
+	}
+	public void setRight(Person right) {
+		this.right = right;
+	}
+	public Person getLeft() {
+		return left;
+	}
+	public void setLeft(Person left) {
+		this.left = left;
+	}
+	public int getFe() {
+		return fe;
+	}
+	public void setFe(int fe) {
+		this.fe = fe;
+	}
+
+
+
+
+	
+
+
+	
 	
 	
 	

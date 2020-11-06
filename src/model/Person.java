@@ -13,7 +13,17 @@ public class Person {
 	private int height;
 	private int code;
 	
-	
+	/**
+	 * Constructor method
+	 * @param name
+	 * @param lastName
+	 * @param nacionality
+	 * @param sex
+	 * @param photo
+	 * @param dateBirth
+	 * @param height
+	 * @param code
+	 */
 	public Person(String name, String lastName, String nacionality, String sex, String photo, LocalDate dateBirth,
 			int height, int code) {
 		super();

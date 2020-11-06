@@ -39,7 +39,7 @@ public class Person {
 	
 
 	
-	
+	//getters
 	public int getCode() {
 		return code;
 	}

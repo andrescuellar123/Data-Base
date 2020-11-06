@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.Initial_Window_Controller">
+   <children>
+      <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <top>
+            <MenuBar BorderPane.alignment="CENTER">
+              <menus>
+                <Menu mnemonicParsing="false" text="File">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Close" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+         </top>
+         <center>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="375.0" prefWidth="443.0" BorderPane.alignment="CENTER">
+               <children>
+                  <TextField fx:id="tfDatosGenerar" layoutX="21.0" layoutY="134.0" prefHeight="25.0" prefWidth="181.0" AnchorPane.leftAnchor="21.0" />
+                  <Text layoutX="23.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" text="¿Cuántos datos deseas generar?" AnchorPane.leftAnchor="23.0">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Text>
+                  <Pane fx:id="progressBarPane" layoutX="23.0" layoutY="207.0" prefHeight="86.0" prefWidth="177.0" style="-fx-background-color: light_grey;" visible="false" AnchorPane.leftAnchor="23.0" AnchorPane.topAnchor="207.0">
+                     <children>
+                        <ProgressBar fx:id="progressBarGenerando" layoutX="13.0" layoutY="46.0" prefHeight="18.0" prefWidth="152.0" progress="0.0" />
+                        <Text layoutX="57.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Generando...">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </Pane>
+                  <Button layoutX="74.0" layoutY="178.0" mnemonicParsing="false" onAction="#btnGenerarDatos" text="GENERAR" />
+                  <Separator layoutX="212.0" layoutY="16.0" orientation="VERTICAL" prefHeight="272.0" prefWidth="7.0" AnchorPane.bottomAnchor="-2.0" AnchorPane.topAnchor="16.0" />
+                  <TableView fx:id="tableViewPersonas" layoutX="226.0" layoutY="17.0" prefHeight="257.0" prefWidth="199.0" AnchorPane.bottomAnchor="12.0" AnchorPane.leftAnchor="226.0" AnchorPane.rightAnchor="23.0" AnchorPane.topAnchor="17.0">
+                    <columns>
+                      <TableColumn fx:id="tColumnNombrePersona" prefWidth="101.0" text="Nombre" />
+                      <TableColumn fx:id="tColumnApellidoPersona" prefWidth="97.0" text="Apellido" />
+                    </columns>
+                  </TableView>
+                  <Separator layoutX="14.0" layoutY="299.0" prefWidth="200.0" AnchorPane.topAnchor="285.0" />
+                  <Text layoutX="16.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Generar Datos de personas" wrappingWidth="113.548828125">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Text>
+                  <ImageView fitHeight="73.0" fitWidth="86.0" layoutX="129.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Resources/grupos.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+         </center>
+         <right>
+            <VBox alignment="TOP_CENTER" prefHeight="366.0" prefWidth="152.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#btnAgregarPersona" prefHeight="128.0" prefWidth="152.0" text="AGREGAR">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                     <graphic>
+                        <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../Resources/anadir%20(1).png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#btnBuscarPersona" prefHeight="128.0" prefWidth="152.0" text="BUSCAR">
+                     <VBox.margin>
+                        <Insets top="5.0" />
+                     </VBox.margin>
+                     <graphic>
+                        <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../Resources/buscar%20(1).png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#btnActualizarDatosPersona" prefHeight="128.0" prefWidth="152.0" text="ACTUALIZAR">
+                     <VBox.margin>
+                        <Insets bottom="5.0" top="5.0" />
+                     </VBox.margin>
+                     <graphic>
+                        <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../Resources/editar.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+               </children>
+            </VBox>
+         </right>
+         <bottom>
+            <AnchorPane prefHeight="63.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Text focusTraversable="true" layoutX="34.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="¿Deseas guardar los datos generados en la base de datos?" textOrigin="CENTER" wrappingWidth="386.0" AnchorPane.leftAnchor="34.0" AnchorPane.rightAnchor="180.0">
+                     <cursor>
+                        <Cursor fx:constant="TEXT" />
+                     </cursor>
+                     <effect>
+                        <Lighting>
+                           <bumpInput>
+                              <Shadow />
+                           </bumpInput>
+                           <light>
+                              <Light.Distant />
+                           </light>
+                        </Lighting>
+                     </effect>
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Text>
+                  <Button layoutX="23.0" layoutY="30.0" mnemonicParsing="false" onAction="#btnGuardarDatosGenerados" prefHeight="33.0" prefWidth="547.0" text="GUARDAR " AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="23.0" AnchorPane.rightAnchor="30.0" />
+                  <Separator layoutX="10.0" layoutY="2.0" prefHeight="3.0" prefWidth="582.0" AnchorPane.bottomAnchor="84.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+               </children>
+            </AnchorPane>
+         </bottom>
+      </BorderPane>
+   </children>
+</AnchorPane>

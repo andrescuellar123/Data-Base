@@ -333,7 +333,13 @@ public class AVLTree<K extends Comparable<K>, V>  implements MyBinaryTree<K, V> 
             }
         }
 
-
+        public void preorden(AVLNode <K, V> r){
+    		if(r!=null){
+    			System.out.println(r.getKey());
+    			preorden(r.getLeft());
+    			preorden(r.getRight());
+    		}
+    	}
 
 
 }

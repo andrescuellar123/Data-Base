@@ -5,7 +5,9 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Random;
 
 import structure.AVLTree;
 
@@ -81,7 +83,45 @@ public class Program implements Serializable{
 			arrayListPersons.add(p);
 		}
 	}
-
+	public void addPersonWithArchives(int num) {
+		int k =0;
+		for (int i = 0; i < num; i++) {
+			String arr[]= randomNames.get(i).split(",");
+			String name =arr[0];
+			
+			String sex =arr[1];
+			
+			for (int j = 0; j < randomLastNames.size(); j++) {
+				
+				String lastName = randomLastNames.get(j);
+				LocalDate n = LocalDate.of(2020,10,30);
+				Random aleatorio=new Random();
+				if(k<132047981) {//1
+					
+					n = LocalDate.of(aleatorio.nextInt(9)+1956, aleatorio.nextInt(12)+1, aleatorio.nextInt(27)+1);
+				}
+				else if(k<143051980 +132047981 && k>132047981) {//2
+					
+					n = LocalDate.of(aleatorio.nextInt(9)+1996, aleatorio.nextInt(12)+1, aleatorio.nextInt(27)+1);
+				}
+				else if(k < 143051980 +132047981+176063975 && k >143051980 +132047981) {//3
+					
+					n = LocalDate.of(-aleatorio.nextInt(10)+1955, aleatorio.nextInt(12)+1, aleatorio.nextInt(27)+1);
+				}
+				else if(k < 198071972+143051980 +132047981+176063975 && k>143051980 +13204798+176063975) {//4
+					
+					n = LocalDate.of(aleatorio.nextInt(14)+2006, aleatorio.nextInt(12)+1, aleatorio.nextInt(27)+1);
+				}
+				else {//5
+					n = LocalDate.of(aleatorio.nextInt(29)+1966, aleatorio.nextInt(12)+1, aleatorio.nextInt(27)+1);
+				}
+				Person p = new Person(name, lastName, "", sex,"", n, aleatorio.nextInt(20)+155, k);
+				avlNames.insert(p.getName(), p);
+				avlLastNames.insert(lastName, p);
+				k++;
+			}
+		}
+	}
 	
 	public void deleteInArrayByCode(int code) {
 		

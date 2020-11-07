@@ -18,6 +18,7 @@ public class Program implements Serializable{
 	private AVLTree<Integer, Person> avlCode = new AVLTree<Integer, Person>();
 	private ArrayList<Person> arrayListPersons= new ArrayList<>();
 			
+	
 	/**
 	 * Constructor Method
 	 * @throws IOException

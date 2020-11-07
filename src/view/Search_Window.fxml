@@ -2,12 +2,14 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
@@ -20,7 +22,6 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </Text>
-      <TextField fx:id="txtFieldBusqueda" layoutX="26.0" layoutY="168.0" prefHeight="25.0" prefWidth="186.0" promptText="Busqueda" AnchorPane.leftAnchor="26.0" AnchorPane.topAnchor="168.0" />
       <Button fx:id="btnSearchUser" layoutX="14.0" layoutY="349.0" mnemonicParsing="false" onAction="#search_User" prefHeight="47.0" prefWidth="215.0" text="BUSCAR" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="14.0" />
       <Separator layoutX="233.0" layoutY="67.0" orientation="VERTICAL" prefHeight="349.0" prefWidth="42.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="233.0" AnchorPane.topAnchor="67.0" />
       <Separator layoutX="14.0" layoutY="65.0" prefHeight="4.0" prefWidth="657.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="65.0" />
@@ -38,5 +39,19 @@
       <Text fx:id="tGenero" layoutX="306.0" layoutY="224.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Género:" />
       <Text fx:id="tEstatura" layoutX="307.0" layoutY="254.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Estatura" />
       <Text fx:id="tNacionalidad" layoutX="307.0" layoutY="281.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nacionalidad" />
+      <VBox layoutX="26.0" layoutY="150.0" prefHeight="200.0" prefWidth="186.0">
+         <children>
+            <TextField fx:id="txtFieldBusqueda" onKeyReleased="#characterAddedForSearch" prefHeight="25.0" prefWidth="186.0" promptText="Busqueda" />
+            <ScrollPane fx:id="scrollPanePredictive" prefHeight="62.0" prefWidth="186.0" visible="false">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="56.0" prefWidth="184.0">
+                     <children>
+                        <Text fx:id="textPredictive" layoutX="3.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </ScrollPane>
+         </children>
+      </VBox>
    </children>
 </AnchorPane>

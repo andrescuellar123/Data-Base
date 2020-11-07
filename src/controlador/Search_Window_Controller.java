@@ -1,5 +1,6 @@
 package controlador;
 
+import java.awt.ScrollPane;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -7,6 +8,9 @@ import java.util.ResourceBundle;
 
 import javax.swing.JOptionPane;
 
+import org.controlsfx.control.textfield.TextFields;
+
+import com.sun.javafx.scene.control.skin.TextFieldSkin;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -16,10 +20,13 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+import javafx.scene.input.DragEvent;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.text.Text;
 import model.Person;
 import model.Program;
+import structure.AVLTree;
 
 public class Search_Window_Controller implements Initializable {
 
@@ -52,15 +59,26 @@ public class Search_Window_Controller implements Initializable {
 
     @FXML
     private Text tNacionalidad;
+ 
     
     Program program;
     
+    @FXML
+    void characterAddedForSearch(KeyEvent event) {
+    	
+    }
+    
 
+
+    
+
+    
     @FXML
     void search_User(ActionEvent event) {
     	String parameter = cbParametros.getSelectionModel().getSelectedItem();
     	String inputString = txtFieldBusqueda.getText().toString().trim();
     	int inputCode = 0;
+    	
     	
     	if(parameter==null) {
 			Alert alert= new Alert(AlertType.INFORMATION);
@@ -73,8 +91,7 @@ public class Search_Window_Controller implements Initializable {
     	switch (parameter) {
 		case "NOMBRE":
 			Person pNombre = program.getAvlNames().search(inputString);
-			JOptionPane.showMessageDialog(null, pNombre.getName());
-
+			
 			if(pNombre!=null) {
 				llenarDatosBuscado(pNombre);
 			}else {
@@ -84,6 +101,8 @@ public class Search_Window_Controller implements Initializable {
 			
 		case "APELLIDO":
 			Person pApellido = program.getAvlLastNames().search(inputString);
+			
+
 			if(pApellido!=null) {
 				llenarDatosBuscado(pApellido);
 			}else {
@@ -94,6 +113,9 @@ public class Search_Window_Controller implements Initializable {
 			
 		case "NOMBRE Y APELLIDO":
 			Person pApellidoNombre =program.getAvlNamesLastNames().search(inputString);
+			
+
+			
 			if(pApellidoNombre!=null) {
 				llenarDatosBuscado(pApellidoNombre);
 			}else {
@@ -170,10 +192,16 @@ public class Search_Window_Controller implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 		
 		agregarParametrosBuscar();
+
+
 	}
 
 	public void initializeAtribute(Program program) {
+		
 		this.program=program;
+		TextFields.bindAutoCompletion(txtFieldBusqueda, program.getRandomNames());
+		TextFields.bindAutoCompletion(txtFieldBusqueda, program.getRandomNames());
+		TextFields.bindAutoCompletion(txtFieldBusqueda, program.getAvlLastNames());
 	}
 
 	public Program getProgram() {

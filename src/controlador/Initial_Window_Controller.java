@@ -48,6 +48,8 @@ public class Initial_Window_Controller implements Initializable{
     @FXML
     private TableColumn<Person, String> tColumnApellidoPersona;
     
+    @FXML
+    private TableColumn<Person, Integer> tColumnCodigo;
     
     Program program;
     private ObservableList<Person> personOBS;
@@ -165,6 +167,7 @@ public class Initial_Window_Controller implements Initializable{
     	
     	tColumnNombrePersona.setCellValueFactory(new PropertyValueFactory<>("name"));
     	tColumnApellidoPersona.setCellValueFactory(new PropertyValueFactory<>("lastName"));
+    	tColumnCodigo.setCellValueFactory(new PropertyValueFactory<>("code"));
     	
   
     }

@@ -89,8 +89,9 @@ public class Edit_Window_Controller {
     	checkBoxFem.setSelected(false);
     }
 
+    
     @FXML
-    void save_User_DataBase(ActionEvent event) {
+    void save_User_DataBase(ActionEvent event) throws Exception{
     	
 		int inputCode=Integer.parseInt(textFieldSearchbyCode.getText().toString());
 		String name=txtFieldNombres.getText().toString().trim();
@@ -107,44 +108,18 @@ public class Edit_Window_Controller {
     	int height= Integer.parseInt(tfEstatura.getText().toString().trim());
     	p.setHeight(height);
     	
+    	program.getAvlNames().delete(name);
+    	program.getAvlNames().insert(name, p);
     	
-		Person p1=program.getAvlNames().search(name);
-
-		if(p1==null) {
-			System.out.println("mierda");
-		}
-		
-		p1.setName(name);
-		p1.setLastName(lastName);
-		p1.setNacionality(nacionality);
-    	p1.setSex((checkBoxMasculin.isSelected())?"M":"F");
-    	p1.setDateBirth(dateNacimiento.getValue());
-    	height= Integer.parseInt(tfEstatura.getText().toString().trim());
-    	p1.setHeight(height);
+    	program.getAvlLastNames().delete(lastName);
+    	program.getAvlLastNames().insert(lastName, p);
     	
-		Person p2=program.getAvlLastNames().search(lastName);
-
-		p2.setName(name);
-		p2.setLastName(lastName);
-		p2.setNacionality(nacionality);
-    	p2.setSex((checkBoxMasculin.isSelected())?"M":"F");
-    	p2.setDateBirth(dateNacimiento.getValue());
-    	height= Integer.parseInt(tfEstatura.getText().toString().trim());
-    	p2.setHeight(height);
-
-		Person p3=program.getAvlNamesLastNames().search(name+" "+lastName);
-
-		p3.setName(name);
-		p3.setLastName(lastName);
-		p3.setNacionality(nacionality);
-    	p3.setSex((checkBoxMasculin.isSelected())?"M":"F");
-    	p3.setDateBirth(dateNacimiento.getValue());
-    	height= Integer.parseInt(tfEstatura.getText().toString().trim());
-    	p3.setHeight(height);
-    	
+    	program.getAvlNamesLastNames().delete(name+" "+lastName);
+    	program.getAvlNamesLastNames().insert(name+" "+lastName, p);
     	
     	int d=program.searchInArrayByCode(inputCode);
-    	program.getArrayListPersons().set(d, p3);
+    	program.getArrayListPersons().remove(d);
+    	program.getArrayListPersons().add(p);
     	
 	    Node source = (Node) event.getSource();
 	    Stage stage = (Stage) source.getScene().getWindow();

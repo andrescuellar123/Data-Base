@@ -62,6 +62,7 @@
                     <columns>
                       <TableColumn fx:id="tColumnNombrePersona" prefWidth="101.0" text="Nombre" />
                       <TableColumn fx:id="tColumnApellidoPersona" prefWidth="97.0" text="Apellido" />
+                        <TableColumn fx:id="tColumnCodigo" prefWidth="75.0" text="Código" />
                     </columns>
                   </TableView>
                   <Separator layoutX="14.0" layoutY="299.0" prefWidth="200.0" AnchorPane.topAnchor="285.0" />

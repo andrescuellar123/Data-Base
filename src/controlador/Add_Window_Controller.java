@@ -56,7 +56,6 @@ public class Add_Window_Controller {
 
     @FXML
     private Button btnUploadImage;
-
     
     Program program;
     

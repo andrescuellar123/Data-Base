@@ -1,6 +1,10 @@
 package controlador;
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -139,8 +143,12 @@ public class Initial_Window_Controller implements Initializable{
     }
 
     @FXML
-    void btnGuardarDatosGenerados(ActionEvent event) {
+    void btnGuardarDatosGenerados(ActionEvent event) throws IOException {
 
+		ObjectOutputStream saving=new ObjectOutputStream(new FileOutputStream("data/programSaved.gus"));
+		saving.writeObject(this.program);
+		saving.close();
+    	
     }
     
    
@@ -155,8 +163,17 @@ public class Initial_Window_Controller implements Initializable{
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
+		try {
+		ObjectInputStream openProgram=new ObjectInputStream(new FileInputStream("data/programSaved.gus"));
+		Program pr=(Program) openProgram.readObject();
+		this.program=pr;
+			openProgram.close();
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 	
+		tableColumnsPerson();
 	}
     
 

@@ -4,11 +4,12 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import structure.AVLTree;
 
-public class Program {
+public class Program implements Serializable{
 
 	private ArrayList<String> randomNames, randomLastNames;
 	private AVLTree<String, Person> avlNames = new AVLTree<String, Person>();
@@ -75,7 +76,9 @@ public class Program {
 		String nameLastName= p.getName()+" "+p.getLastName();
 		avlNamesLastNames.insert(nameLastName, p);
 		avlCode.insert(p.getCode(), p);
-		arrayListPersons.add(p);
+		if(arrayListPersons.size()<100) {
+			arrayListPersons.add(p);
+		}
 	}
 
 	

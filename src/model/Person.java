@@ -1,12 +1,13 @@
 package model;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Date;
 
 import javax.swing.JOptionPane;
 
 
-public class Person {
+public class Person implements Serializable{
 
 	private String name, lastName, nacionality, sex, photo;
 	private LocalDate dateBirth;

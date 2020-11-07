@@ -1,6 +1,8 @@
 package structure;
 
-public class AVLNode<K extends Comparable<K>,V>{
+import java.io.Serializable;
+
+public class AVLNode<K extends Comparable<K>,V> implements Serializable{
 
 
     private K key;

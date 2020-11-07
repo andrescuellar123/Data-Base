@@ -14,11 +14,13 @@ import structure.AVLTree;
 public class Program implements Serializable{
 
 	private ArrayList<String> randomNames, randomLastNames;
+	private ArrayList<String> autocomplete = new ArrayList<>();
 	private AVLTree<String, Person> avlNames = new AVLTree<String, Person>();
 	private AVLTree<String, Person> avlLastNames = new AVLTree<String, Person>();
 	private AVLTree<String, Person> avlNamesLastNames = new AVLTree<String, Person>();
 	private AVLTree<Integer, Person> avlCode = new AVLTree<Integer, Person>();
 	private ArrayList<Person> arrayListPersons= new ArrayList<>();
+	
 			
 	
 	/**
@@ -74,10 +76,15 @@ public class Program implements Serializable{
 	 * @param p
 	 */
 	public void addPersonTrees(Person p) {
+		
 		avlNames.insert(p.getName(), p);
 		avlLastNames.insert(p.getLastName(), p);
 		String nameLastName= p.getName()+" "+p.getLastName();
 		avlNamesLastNames.insert(nameLastName, p);
+		
+		autocomplete.add(p.getName());
+		autocomplete.add(p.getLastName());
+		
 		avlCode.insert(p.getCode(), p);
 		if(arrayListPersons.size()<100) {
 			arrayListPersons.add(p);
@@ -222,6 +229,16 @@ public class Program implements Serializable{
 
 	public void setRandomLastNames(ArrayList<String> randomLastNames) {
 		this.randomLastNames = randomLastNames;
+	}
+
+
+	public ArrayList<String> getAutocomplete() {
+		return autocomplete;
+	}
+
+
+	public void setAutocomplete(ArrayList<String> autocomplete) {
+		this.autocomplete = autocomplete;
 	}
 	
 }

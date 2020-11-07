@@ -86,7 +86,7 @@ public class Search_Window_Controller implements Initializable {
 			alert.setContentText("Por favor elige un parámetro de busqueda.");
 			alert.setTitle("Elige un parámetro.");
 			alert.showAndWait();
-    	}
+    	}else {
     	
     	switch (parameter) {
 		case "NOMBRE":
@@ -142,6 +142,8 @@ public class Search_Window_Controller implements Initializable {
 			break;
 
 		}
+    	
+    	}
     	
     }
     
@@ -199,9 +201,7 @@ public class Search_Window_Controller implements Initializable {
 	public void initializeAtribute(Program program) {
 		
 		this.program=program;
-		TextFields.bindAutoCompletion(txtFieldBusqueda, program.getRandomNames());
-		TextFields.bindAutoCompletion(txtFieldBusqueda, program.getRandomNames());
-		TextFields.bindAutoCompletion(txtFieldBusqueda, program.getAvlLastNames());
+		TextFields.bindAutoCompletion(txtFieldBusqueda, program.getAutocomplete());
 	}
 
 	public Program getProgram() {

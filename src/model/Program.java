@@ -13,7 +13,7 @@ import structure.AVLTree;
 
 public class Program implements Serializable{
 
-	private ArrayList<String> randomNames, randomLastNames;
+	private ArrayList<String> randomNames, randomLastNames,randomCountry;
 	private ArrayList<String> autocomplete = new ArrayList<>();
 	private AVLTree<String, Person> avlNames = new AVLTree<String, Person>();
 	private AVLTree<String, Person> avlLastNames = new AVLTree<String, Person>();
@@ -91,43 +91,48 @@ public class Program implements Serializable{
 		}
 		
 	}
-	public void addPersonWithArchives() {
-		int k =0;
-		for (int i = 0; i < 1; i++) {
-			String arr[]= randomNames.get(i).split(",");
+public void addPersonWithArchives(int cantidad) {
+		
+		
+		
+		for(int i=0;i<cantidad;i++) {
+			int indexName=(int) (Math.random() * (randomNames.size()-1) + 1);
+			int indexLastname=(int) (Math.random() * (randomLastNames.size()-1) + 1);
+			int indexCountry=(int) (Math.random() * (randomCountry.size()-1) + 1);
+			
+			String arr[]= randomNames.get(indexName).split(",");
 			String name =arr[0];
-			
+			String lastName= randomLastNames.get(indexLastname);
 			String sex =arr[1];
+			String country= randomCountry.get(indexCountry);
 			
-			for (int j = 0; j < randomLastNames.size(); j++) {
+			LocalDate n ;
+			Random aleatorio=new Random();
+			if(i<214176) {//1
 				
-				String lastName = randomLastNames.get(j);
-				LocalDate n ;
-				Random aleatorio=new Random();
-				if(k<214176) {//1
-					
-					n = LocalDate.of(aleatorio.nextInt(9)+1956, aleatorio.nextInt(12)+1, aleatorio.nextInt(27)+1);
-				}//446200
-				else if(k< 232024 +214176 && k>214176) {//2
-					
-					n = LocalDate.of(aleatorio.nextInt(9)+1996, aleatorio.nextInt(12)+1, aleatorio.nextInt(27)+1);
-				}//731760
-				else if(k < 232024 +214176+ 285560 && k >232024 +214176) {//3
-					
-					n = LocalDate.of(-aleatorio.nextInt(10)+1955, aleatorio.nextInt(12)+1, aleatorio.nextInt(27)+1);
-				}//1053024
-				else if(k < 232024 +214176+ 285560+321264 && k>232024 +214176+ 285560) {//4
-					
-					n = LocalDate.of(aleatorio.nextInt(14)+2006, aleatorio.nextInt(12)+1, aleatorio.nextInt(27)+1);
-				}
-				else {//5
-					n = LocalDate.of(aleatorio.nextInt(29)+1966, aleatorio.nextInt(12)+1, aleatorio.nextInt(27)+1);
-				}
-				Person p = new Person(name, lastName, "Colombia", sex,"", n, aleatorio.nextInt(20)+155, (autocomplete.size()/2)+1);
-				addPersonTrees(p);
-				k++;
+				n = LocalDate.of(aleatorio.nextInt(9)+1956, aleatorio.nextInt(12)+1, aleatorio.nextInt(27)+1);
+			}//446200
+			else if(i< 232024 +214176 && i>214176) {//2
+				
+				n = LocalDate.of(aleatorio.nextInt(9)+1996, aleatorio.nextInt(12)+1, aleatorio.nextInt(27)+1);
+			}//731760
+			else if(i < 232024 +214176+ 285560 && i >232024 +214176) {//3
+				
+				n = LocalDate.of(-aleatorio.nextInt(10)+1955, aleatorio.nextInt(12)+1, aleatorio.nextInt(27)+1);
+			}//1053024
+			else if(i < 232024 +214176+ 285560+321264 && i>232024 +214176+ 285560) {//4
+				
+				n = LocalDate.of(aleatorio.nextInt(14)+2006, aleatorio.nextInt(12)+1, aleatorio.nextInt(27)+1);
 			}
+			else {//5
+				n = LocalDate.of(aleatorio.nextInt(29)+1966, aleatorio.nextInt(12)+1, aleatorio.nextInt(27)+1);
+			}
+			Person p = new Person(name, lastName, country, sex,"", n, aleatorio.nextInt(20)+155, (autocomplete.size()/2)+1);
+			addPersonTrees(p);
+			
+			
 		}
+		
 	}
 	
 	public void deleteInArrayByCode(int code) {

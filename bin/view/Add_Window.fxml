@@ -18,11 +18,6 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </Text>
-      <Text fx:id="txtCode" layoutX="240.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="El codigo generado para este usuario es 12321." AnchorPane.bottomAnchor="367.7373046875" AnchorPane.topAnchor="35.9716796875">
-         <font>
-            <Font size="13.0" />
-         </font>
-      </Text>
       <TextField fx:id="txtFieldNombres" layoutX="14.0" layoutY="100.0" prefHeight="25.0" prefWidth="334.0" promptText="NOMBRES" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="333.0" AnchorPane.topAnchor="100.0" />
       <Text layoutX="14.0" layoutY="86.9208984375" strokeType="OUTSIDE" strokeWidth="0.0" text="Ingresa los nombres" AnchorPane.bottomAnchor="256.0673828125" AnchorPane.topAnchor="73.9716796875">
          <font>

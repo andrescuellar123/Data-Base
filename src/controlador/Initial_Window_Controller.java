@@ -10,6 +10,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import javax.swing.JOptionPane;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -139,7 +141,8 @@ public class Initial_Window_Controller implements Initializable{
 
     @FXML
     void btnGenerarDatos(ActionEvent event) {
-    	program.addPersonWithArchives();
+    	int num = Integer.parseInt(tfDatosGenerar.getText());
+    	program.addPersonWithArchives(num);
     	tableColumnsPerson();
     }
 
@@ -173,7 +176,8 @@ public class Initial_Window_Controller implements Initializable{
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-	
+		JOptionPane.showMessageDialog(null, "Hola Nicolas porfa utiliza la libreria que esta en la carpeta resource ");
+		JOptionPane.showMessageDialog(null, "Hola Nicolas porfa utiliza la libreria que esta en la carpeta resource ");
 		tableColumnsPerson();
 	}
     

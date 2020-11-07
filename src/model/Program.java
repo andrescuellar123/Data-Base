@@ -35,7 +35,7 @@ public class Program implements Serializable{
 	public void loadNames() throws IOException {
 		randomNames= new ArrayList<>();
 
-		BufferedReader br = new BufferedReader(new FileReader(new File("C:\\Users\\icesi\\eclipse-workspace\\borradorTarea1\\data\\names\\names_data.csv")));
+		BufferedReader br = new BufferedReader(new FileReader(new File("data/files/names_data.csv")));
 		String line1;
 		
 		while((line1 = br.readLine())!= null) {
@@ -53,7 +53,7 @@ public class Program implements Serializable{
 	public void loadLastNames() throws IOException {
 		randomLastNames= new ArrayList<>();
 
-		BufferedReader br = new BufferedReader(new FileReader(new File("C:\\Users\\icesi\\eclipse-workspace\\borradorTarea1\\data\\names\\lastNames_data.csv")));
+		BufferedReader br = new BufferedReader(new FileReader(new File("data/files/lastNames_data.csv")));
 		String line1;
 		br.readLine();
 		while((line1 = br.readLine())!= null) {

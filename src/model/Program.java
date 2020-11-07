@@ -44,8 +44,8 @@ public class Program implements Serializable{
 		String line1;
 		
 		while((line1 = br.readLine())!= null) {
-			String[]line2=line1.split(",");
-			randomNames.add(line2[0]);	
+			
+			randomNames.add(line1);	
 		}
 		br.close();
 	}
@@ -89,10 +89,11 @@ public class Program implements Serializable{
 		if(arrayListPersons.size()<100) {
 			arrayListPersons.add(p);
 		}
+		
 	}
-	public void addPersonWithArchives(int num) {
+	public void addPersonWithArchives() {
 		int k =0;
-		for (int i = 0; i < num; i++) {
+		for (int i = 0; i < 1; i++) {
 			String arr[]= randomNames.get(i).split(",");
 			String name =arr[0];
 			
@@ -101,30 +102,29 @@ public class Program implements Serializable{
 			for (int j = 0; j < randomLastNames.size(); j++) {
 				
 				String lastName = randomLastNames.get(j);
-				LocalDate n = LocalDate.of(2020,10,30);
+				LocalDate n ;
 				Random aleatorio=new Random();
-				if(k<132047981) {//1
+				if(k<214176) {//1
 					
 					n = LocalDate.of(aleatorio.nextInt(9)+1956, aleatorio.nextInt(12)+1, aleatorio.nextInt(27)+1);
-				}
-				else if(k<143051980 +132047981 && k>132047981) {//2
+				}//446200
+				else if(k< 232024 +214176 && k>214176) {//2
 					
 					n = LocalDate.of(aleatorio.nextInt(9)+1996, aleatorio.nextInt(12)+1, aleatorio.nextInt(27)+1);
-				}
-				else if(k < 143051980 +132047981+176063975 && k >143051980 +132047981) {//3
+				}//731760
+				else if(k < 232024 +214176+ 285560 && k >232024 +214176) {//3
 					
 					n = LocalDate.of(-aleatorio.nextInt(10)+1955, aleatorio.nextInt(12)+1, aleatorio.nextInt(27)+1);
-				}
-				else if(k < 198071972+143051980 +132047981+176063975 && k>143051980 +13204798+176063975) {//4
+				}//1053024
+				else if(k < 232024 +214176+ 285560+321264 && k>232024 +214176+ 285560) {//4
 					
 					n = LocalDate.of(aleatorio.nextInt(14)+2006, aleatorio.nextInt(12)+1, aleatorio.nextInt(27)+1);
 				}
 				else {//5
 					n = LocalDate.of(aleatorio.nextInt(29)+1966, aleatorio.nextInt(12)+1, aleatorio.nextInt(27)+1);
 				}
-				Person p = new Person(name, lastName, "", sex,"", n, aleatorio.nextInt(20)+155, k);
-				avlNames.insert(p.getName(), p);
-				avlLastNames.insert(lastName, p);
+				Person p = new Person(name, lastName, "Colombia", sex,"", n, aleatorio.nextInt(20)+155, (autocomplete.size()/2)+1);
+				addPersonTrees(p);
 				k++;
 			}
 		}

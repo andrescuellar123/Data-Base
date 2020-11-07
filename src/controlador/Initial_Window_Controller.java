@@ -139,7 +139,8 @@ public class Initial_Window_Controller implements Initializable{
 
     @FXML
     void btnGenerarDatos(ActionEvent event) {
-
+    	program.addPersonWithArchives();
+    	tableColumnsPerson();
     }
 
     @FXML

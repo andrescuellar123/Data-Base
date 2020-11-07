@@ -78,7 +78,7 @@ public class Add_Window_Controller {
     	String photo=" ";
     	LocalDate dateBirth= dateNacimiento.getValue();
     	int height= Integer.parseInt(tfEstatura.getText().toString().trim());
-    	int code=program.getArrayListPersons().size()+1;
+    	int code=(program.getAutocomplete().size()/2)+1;
     	if(name.equals("")||lastName.equals("")||nacionality.equals("")||sex.equals(null)||dateBirth.equals(null)||height==0) {
 			Alert alert= new Alert(AlertType.ERROR);
 			alert.setHeaderText(null);

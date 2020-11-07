@@ -21,7 +21,7 @@ public class Main extends Application {
 		loader.setLocation(Main.class.getResource("/view/Initial_Window.fxml")); 
 		Pane ventana = (Pane) loader.load();		
 		Scene scene=new Scene(ventana);
-    	primaryStage.setMaximized(true);
+    	
 
 		primaryStage.setTitle("GENERAR DATOS");
 		primaryStage.setScene(scene);

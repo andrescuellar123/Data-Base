@@ -36,3 +36,7 @@ Language: Java
 Operative System: Windows 10
 Development: Eclipse 2020-06
 
+
+**Capstone-homework part 2**
+
+In the second part of the delivery of the Capstone-homework we made the corrections indicated by the monitor. Regarding the design we added to the diagram classes that were missing for the complete development (Trie, ABB and RedBlackTree), the unit tests were also implemented to the diagram (for the AVLTree, ABB, Trie, RedBlackTree classes). In the coding part, the ABB tree and the Trie were implemented (with their due tests) and finally the implementation of the word predictor was also corrected using the Trie

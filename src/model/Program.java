@@ -269,12 +269,8 @@ public class Program implements Serializable{
 	public void setAutocomplete(ArrayList<String> autocomplete) {
 		this.autocomplete = autocomplete;
 	}
-	public ArrayList<String> getAutocomplete2(String s){
-		autocomplete = (ArrayList<String>) autoCompleteName(s);
-		return autocomplete;
-	}
-	
-	public List<String> autoCompleteName(String TheSearchingWord) {
+
+	public List<String> completeSentence(String TheSearchingWord) {
 		return t.completeSentence(TheSearchingWord);
 
 	}

@@ -204,7 +204,7 @@ public class Search_Window_Controller implements Initializable {
 
 		String parameter = cbParametros.getSelectionModel().getSelectedItem();
 
-		TextFields.bindAutoCompletion(txtFieldBusqueda, program.autoCompleteName(txtFieldBusqueda.getText()));	
+		TextFields.bindAutoCompletion(txtFieldBusqueda, program.completeSentence(txtFieldBusqueda.getText()));	
 
 
 		

@@ -101,7 +101,7 @@ public class Search_Window_Controller implements Initializable {
 			
 		case "APELLIDO":
 			Person pApellido = program.getAvlLastNames().search(inputString);
-			
+		
 
 			if(pApellido!=null) {
 				llenarDatosBuscado(pApellido);
@@ -194,14 +194,20 @@ public class Search_Window_Controller implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 		
 		agregarParametrosBuscar();
-
+		
 
 	}
 
 	public void initializeAtribute(Program program) {
 		
 		this.program=program;
-		TextFields.bindAutoCompletion(txtFieldBusqueda, program.getAutocomplete());
+
+		String parameter = cbParametros.getSelectionModel().getSelectedItem();
+
+		TextFields.bindAutoCompletion(txtFieldBusqueda, program.autoCompleteName(txtFieldBusqueda.getText()));	
+
+
+		
 	}
 
 	public Program getProgram() {

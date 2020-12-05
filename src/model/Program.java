@@ -7,8 +7,10 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
+import structure.Trie;
 import structure.AVLTree;
 
 public class Program implements Serializable{
@@ -20,8 +22,8 @@ public class Program implements Serializable{
 	private AVLTree<String, Person> avlNamesLastNames = new AVLTree<String, Person>();
 	private AVLTree<Integer, Person> avlCode = new AVLTree<Integer, Person>();
 	private ArrayList<Person> arrayListPersons= new ArrayList<>();
-
-
+	private Trie t = new Trie();
+	
 
 	/**
 	 * Constructor Method
@@ -85,7 +87,9 @@ public class Program implements Serializable{
 
 		autocomplete.add(p.getName());
 		autocomplete.add(p.getLastName());
-
+		t.add(p.getName());
+		t.add(p.getLastName());
+		t.add(p.getName()+" "+p.getLastName());
 		avlCode.insert(p.getCode(), p);
 		if(arrayListPersons.size()<100) {
 			arrayListPersons.add(p);
@@ -265,5 +269,15 @@ public class Program implements Serializable{
 	public void setAutocomplete(ArrayList<String> autocomplete) {
 		this.autocomplete = autocomplete;
 	}
+	public ArrayList<String> getAutocomplete2(String s){
+		autocomplete = (ArrayList<String>) autoCompleteName(s);
+		return autocomplete;
+	}
+	
+	public List<String> autoCompleteName(String TheSearchingWord) {
+		return t.completeSentence(TheSearchingWord);
+
+	}
+	
 
 }

@@ -70,6 +70,22 @@ public class Edit_Window_Controller {
         	program.getAvlCode().delete(code);
         	
         	program.deleteInArrayByCode(code);
+        	
+        	boolean nameb = false;
+        	boolean lastnameb =false;
+        	for(int i=0;i<program.getAutocomplete().size();i++) {
+        		
+        		if(program.getAutocomplete().get(i).equals(name)&&nameb==false) {
+        			program.getAutocomplete().remove(i);
+        			nameb=true;
+        			
+          		}
+        		if(program.getAutocomplete().get(i).equals(lastName)&&lastnameb==false) {
+        			program.getAutocomplete().remove(i);
+        			lastnameb=true;
+          		}
+        	}
+
     	}
     	
 	    Node source = (Node) event.getSource();
